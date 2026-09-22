@@ -523,6 +523,16 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
 .ba-split .shot::before{content:none}
 .ba-split .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 38%}
 .ba-split .stamp{z-index:2}
+
+/* topo em telas estreitas: o logo encolhe e o botão não quebra */
+.topbar .btn--sm{white-space:nowrap}
+.logo{min-width:0;flex-shrink:1}
+@media(max-width:430px){
+  .topbar{padding:10px 16px;gap:10px}
+  .logo img{height:23px}
+  .logo small{font-size:9px;letter-spacing:.1em;margin-top:3px}
+  .topbar .btn--sm{font-size:13px;padding:10px 14px}
+}
 </style>
 
 <div class="page">
