@@ -598,6 +598,14 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
   .proto-item:hover,.vid:hover,.ba-item:hover,.stepcard:hover,.pair-item:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
   .trustbar .n{transition:transform .2s ease}
 }
+
+/* orçamento: o cartão acompanha a altura da coluna e o botão fica na base */
+@media(min-width:900px){
+  .orc{align-items:stretch}
+  .orc-card{display:flex;flex-direction:column}
+  .orc-card ol{margin-bottom:26px}
+  .orc-card .btn{margin-top:auto}
+}
 </style>
 
 <div class="page">
