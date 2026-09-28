@@ -790,6 +790,44 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
   .faq summary{font-size:15.5px;padding:15px 42px 15px 16px}
   .faq summary::after{top:21px;right:16px}
 }
+
+/* legendas discretas embaixo da foto */
+.pic{aspect-ratio:auto!important;border-radius:0;overflow:visible;box-shadow:none;background:none;
+  text-decoration:none}
+.pic-frame{display:block;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-md);
+  background:var(--blue-50)}
+.pic-frame img{display:block;width:100%;height:100%;object-fit:cover}
+.pic .cap{position:static;display:block;margin:8px 2px 0;padding:0;background:none;box-shadow:none;
+  border-radius:0;font-family:Inter,sans-serif;font-size:13px;font-weight:500;line-height:1.35;
+  color:var(--ink-3)}
+a.pic .cap{color:var(--blue-700);font-weight:600}
+a.pic:hover .cap{text-decoration:underline}
+@media(max-width:640px){
+  .clinic > div:last-child > .pic{aspect-ratio:auto!important}
+  .clinic > div:last-child > .pic .pic-frame{aspect-ratio:1/1}
+  .clinic > div:last-child > .pic .cap{font-size:11.5px;margin-top:6px}
+}
+@media(min-width:641px){
+  .clinic > div:last-child > .pic{aspect-ratio:auto!important}
+  .clinic > div:last-child > .pic .pic-frame{aspect-ratio:4/3}
+}
+
+/* botoes sempre em uma linha so */
+.btn--go{background:#0F8546;white-space:nowrap;font-size:clamp(15px,4.1vw,19px)}
+.btn--go:hover{background:#0B7A3F}
+.btn,.btn--ghost,.topbar .btn{white-space:nowrap}
+.topbar .btn{font-size:clamp(12.5px,3.3vw,15px)}
+@media(max-width:640px){
+  .btn--go{padding:15px 18px}
+  .hero-cta .btn--go{padding:15px 16px}
+}
+
+/* no mobile o flutuante vira so a bolinha do whatsapp */
+@media(max-width:640px){
+  .fab{width:60px;height:60px;padding:0;gap:0;justify-content:center;right:14px;bottom:14px}
+  .fab .fab-t{display:none}
+  .fab .wi{width:34px;height:34px;background:none;color:#fff}
+}
 </style>
 
 <div class="page">
@@ -1218,8 +1256,8 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
         <h2>Quanto vai custar o meu caso?</h2>
         <p class="lede">Não existe valor de tabela: quem define o seu orçamento é o raio-x.</p>
         <p class="lede">A gente mostra o valor na avaliação e você leva tudo por escrito. Preço em anúncio é proibido pelo Conselho Federal de Odontologia.</p>
-        <div class="pic" style="aspect-ratio:3/2;margin-top:24px">
-          <img src="img/raiox.jpg" alt="Dentista da unidade analisando um raio-x panorâmico" loading="lazy" width="1000" height="665">
+        <div class="pic" style="margin-top:24px">
+          <span class="pic-frame" style="aspect-ratio:3/2"><img src="img/raiox.jpg" alt="Dentista da unidade analisando um raio-x panorâmico" loading="lazy" width="1000" height="665"></span>
           <span class="cap">É o raio-x que define o seu caso</span>
         </div>
       </div>
@@ -1349,20 +1387,20 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
       </div>
 
       <div style="display:grid;gap:18px;align-content:start">
-        <div class="pic" style="aspect-ratio:3/2">
-          <img src="img/fachada.jpg" alt="Fachada da Sorrifácil Itapema" loading="lazy" width="1024" height="683">
+        <div class="pic">
+          <span class="pic-frame" style="aspect-ratio:3/2"><img src="img/fachada.jpg" alt="Fachada da Sorrifácil Itapema" loading="lazy" width="1024" height="683"></span>
           <span class="cap">A fachada da Sorrifácil Itapema</span>
         </div>
-        <a class="pic" id="mapa" href="https://www.google.com/maps/search/?api=1&amp;query=Sorrif%C3%A1cil+Cl%C3%ADnica+Odontol%C3%B3gica+Itapema" target="_blank" rel="noopener" style="aspect-ratio:16/10" aria-label="Abrir a localização no Google Maps">
-          <img src="img/mapa.jpg" alt="Mapa da Meia Praia com a localização da Sorrifácil" loading="lazy" width="1200" height="669">
+        <a class="pic" id="mapa" href="https://www.google.com/maps/search/?api=1&amp;query=Sorrif%C3%A1cil+Cl%C3%ADnica+Odontol%C3%B3gica+Itapema" target="_blank" rel="noopener" aria-label="Abrir a localização no Google Maps">
+          <span class="pic-frame" style="aspect-ratio:16/10"><img src="img/mapa.jpg" alt="Mapa da Meia Praia com a localização da Sorrifácil" loading="lazy" width="1200" height="669"></span>
           <span class="cap">Abrir no Google Maps →</span>
         </a>
-        <div class="pic" style="aspect-ratio:3/2">
-          <img src="img/interior.jpg" alt="Recepção da Sorrifácil Itapema" loading="lazy" width="1000" height="668">
+        <div class="pic">
+          <span class="pic-frame" style="aspect-ratio:3/2"><img src="img/interior.jpg" alt="Recepção da Sorrifácil Itapema" loading="lazy" width="1000" height="668"></span>
           <span class="cap">A recepção, com a galeria de novos sorrisos</span>
         </div>
-        <div class="pic" style="aspect-ratio:4/3">
-          <img src="img/equipe.jpg" alt="Equipe da Sorrifácil Itapema na recepção" loading="lazy" width="1000" height="750">
+        <div class="pic">
+          <span class="pic-frame" style="aspect-ratio:4/3"><img src="img/equipe.jpg" alt="Equipe da Sorrifácil Itapema na recepção" loading="lazy" width="1000" height="750"></span>
           <span class="cap">A equipe da unidade</span>
         </div>
       </div>
@@ -1439,7 +1477,7 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
   </footer>
 </div>
 
-<a class="fab" href="#agendar"><svg class="wi" viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg> Falar no WhatsApp</a>
+<a class="fab" href="#agendar" aria-label="Falar no WhatsApp"><svg class="wi" viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg><span class="fab-t">Falar no WhatsApp</span></a>
 
 
 <div class="modal" id="modal" hidden>
