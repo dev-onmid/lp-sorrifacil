@@ -697,6 +697,44 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
 
 /* letra miúda do antes e depois, discreta e fora do estilo de nota */
 .miudo{margin:16px 0 0;font-size:12.5px;line-height:1.5;color:var(--ink-3);max-width:70ch}
+
+/* ============ antes e depois com arrastar ============ */
+.ba-slider{
+  --p:50%;position:relative;max-width:520px;margin:0 auto;aspect-ratio:520/591;
+  border-radius:16px;overflow:hidden;box-shadow:var(--shadow-md);background:#EAF2F5;touch-action:pan-y;
+}
+.ba-slider img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.ba-slider .ba-antes{clip-path:inset(0 calc(100% - var(--p)) 0 0)}
+.ba-linha{position:absolute;top:0;bottom:0;left:var(--p);width:3px;margin-left:-1.5px;background:#fff;box-shadow:0 0 10px rgba(0,0,0,.35);pointer-events:none}
+.ba-pega{
+  position:absolute;top:50%;left:var(--p);transform:translate(-50%,-50%);pointer-events:none;
+  width:48px;height:48px;border-radius:50%;background:#fff;box-shadow:0 4px 16px rgba(0,0,0,.3);
+  display:flex;align-items:center;justify-content:center;
+  font-family:Poppins,sans-serif;font-size:15px;font-weight:700;color:var(--blue-700);letter-spacing:-.06em;
+}
+.ba-tag{
+  position:absolute;top:14px;z-index:2;font-family:Poppins,sans-serif;font-size:11.5px;font-weight:600;
+  letter-spacing:.11em;text-transform:uppercase;padding:6px 12px;border-radius:999px;
+}
+.ba-tag--a{left:14px;background:rgba(4,59,76,.82);color:#fff}
+.ba-tag--d{right:14px;background:var(--green);color:#fff}
+.ba-range{
+  position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;
+  -webkit-appearance:none;appearance:none;background:transparent;
+}
+.ba-range::-webkit-slider-thumb{-webkit-appearance:none;width:52px;height:100%;cursor:ew-resize}
+.ba-range::-moz-range-thumb{width:52px;height:100%;border:0;background:transparent;cursor:ew-resize}
+.ba-range:focus-visible{outline:3px solid var(--blue-500);outline-offset:3px;border-radius:16px}
+
+/* ============ desktop enxuto igual ao celular ============ */
+.crow[data-secundaria]{display:none}
+.vid[data-extra]{display:none}
+.vids.aberto .vid[data-extra]{display:block}
+.ver-mais{display:flex;width:100%;max-width:420px;margin:18px auto 0;justify-content:center}
+@media(min-width:641px){
+  .clinic > div:last-child{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+  .clinic > div:last-child > .pic{aspect-ratio:4/3 !important}
+}
 </style>
 
 <div class="page">
@@ -1102,45 +1140,18 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
       <div class="sec-top">
         <p class="eyebrow">Gente que voltou a sorrir</p>
         <h2>O dia em que a pessoa volta a sorrir sem tampar a boca</h2>
-        <p class="lede">Veja quem chegou parecido com você.</p>
+        <p class="lede">Arraste para ver a diferença.</p>
       </div>
-      <div class="ba">
-
-        <div class="ba-item">
-          <div class="ba-split">
-            <div class="shot"><span class="stamp">Antes</span></div>
-            <div class="shot"><span class="stamp">Depois</span></div>
-          </div>
-          <div class="meta">
-            <h4>Perdeu alguns dentes</h4>
-            <p>Implantes só nos espaços vazios.</p>
-          </div>
-        </div>
-
-        <div class="ba-item">
-          <div class="ba-split">
-            <div class="shot"><span class="stamp">Antes</span></div>
-            <div class="shot"><span class="stamp">Depois</span></div>
-          </div>
-          <div class="meta">
-            <h4>Perdeu a arcada de cima</h4>
-            <p>Protocolo na arcada de cima, com o céu da boca livre.</p>
-          </div>
-        </div>
-
-        <div class="ba-item">
-          <div class="ba-split">
-            <div class="shot"><span class="stamp">Antes</span></div>
-            <div class="shot"><span class="stamp">Depois</span></div>
-          </div>
-          <div class="meta">
-            <h4>Usava dentadura</h4>
-            <p>Protocolo nas duas arcadas.</p>
-          </div>
-        </div>
-
+      <div class="ba-slider">
+        <img class="ba-depois" src="img/ba3-depois.jpg" alt="Depois: sorriso completo com prótese protocolo" loading="lazy" width="520" height="591">
+        <img class="ba-antes" src="img/ba3-antes.jpg" alt="Antes: sem os dentes de cima" loading="lazy" width="520" height="591">
+        <span class="ba-tag ba-tag--a">Antes</span>
+        <span class="ba-tag ba-tag--d">Depois</span>
+        <span class="ba-linha"></span>
+        <span class="ba-pega">‹ ›</span>
+        <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Arraste para comparar o antes e o depois">
       </div>
-      <p class="miudo">Imagens ilustrativas. Resultados variam conforme o caso clínico.</p>
+      <p class="miudo">Simulação de uma prótese protocolo, feita para mostrar o tipo de transformação. Não é foto de paciente. Resultados variam conforme o caso clínico.</p>
     </div>
   </section>
 
@@ -1512,6 +1523,17 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
   b.addEventListener('click', function(){
     document.querySelector('.vids').classList.add('aberto');
     b.remove();
+  });
+})();
+</script>
+<script>
+(function(){
+  document.querySelectorAll('.ba-slider').forEach(function(box){
+    var r = box.querySelector('.ba-range');
+    if (!r) return;
+    var pinta = function(){ box.style.setProperty('--p', r.value + '%'); };
+    r.addEventListener('input', pinta);
+    pinta();
   });
 })();
 </script>
