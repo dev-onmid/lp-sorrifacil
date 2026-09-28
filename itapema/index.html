@@ -606,6 +606,37 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
   .orc-card ol{margin-bottom:26px}
   .orc-card .btn{margin-top:auto}
 }
+
+/* celular: menos respiro entre blocos, para a página encurtar */
+@media(max-width:640px){
+  .band{padding:44px 0}
+  .sec-top{margin-bottom:26px}
+  .lede{font-size:18px;margin-top:12px}
+  .why-list{gap:14px}
+  .stepcard{padding:20px}
+  .proto-item figcaption{padding:10px 12px 12px}
+  .vid .body{padding:15px 17px 17px}
+  .doc{padding:17px}
+  .docs{gap:12px}
+}
+
+/* ============ celular: menos empilhamento ============ */
+@media(max-width:640px){
+  /* fotos da clínica lado a lado, em vez de uma embaixo da outra */
+  .clinic > div:last-child{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start}
+  .clinic > div:last-child > .pic{aspect-ratio:1/1 !important;margin:0}
+  .clinic > div:last-child > .pic .cap{font-size:11px;padding:4px 8px;left:7px;bottom:7px}
+  .clinic .btn--ghost{width:100%;justify-content:center}
+
+  /* dois depoimentos primeiro; os outros entram no botão */
+  .vid[data-extra]{display:none}
+  .vids.aberto .vid[data-extra]{display:block}
+  .ver-mais{display:flex;width:100%;justify-content:center;margin-top:14px}
+
+  /* duas linhas da tabela saem: o assunto volta inteiro na seção do osso */
+  .crow[data-secundaria]{display:none}
+}
+.ver-mais{display:none}
 </style>
 
 <div class="page">
@@ -626,12 +657,11 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
       <div>
         <p class="place">🦷 Implantes e prótese protocolo em Itapema</p>
         <h1>Volte a morder pão francês. <em>Com dentes fixos, não com dentadura.</em></h1>
-        <p class="sub">A prótese protocolo devolve a arcada inteira apoiada em <strong>6 implantes em cima e 4 embaixo</strong>. Dente fixo, céu da boca livre e mastigação de verdade, aqui em Itapema.</p>
+        <p class="sub">Dente fixo, apoiado em <strong>6 implantes em cima e 4 embaixo</strong>. Você volta a mastigar de tudo.</p>
         <div class="hero-cta"><a class="btn btn--go" href="#agendar">Ver se meu caso tem solução →</a></div>
         <div class="reassure">
-          <div><span class="tick">✓</span><span>Avaliação com <strong>raio-x panorâmico</strong>, feita por dentista, aqui em Itapema</span></div>
-          <div><span class="tick">✓</span><span>Você sai sabendo quantos implantes precisa e se há necessidade de enxerto</span></div>
-          <div><span class="tick">✓</span><span>Quem faz a sua avaliação é dentista, com o raio-x na tela, na frente de você</span></div>
+          <div><span class="tick">✓</span><span>Avaliação com <strong>raio-x panorâmico</strong>, feita por dentista</span></div>
+          <div><span class="tick">✓</span><span>Você sai sabendo quantos implantes precisa</span></div>
         </div>
       </div>
       <div class="hero-photo">
@@ -732,10 +762,9 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
         <p class="eyebrow">Depois que você enviar</p>
         <h2>A gente não deixa você esperando</h2>
         <ul class="why-list" style="margin-top:26px">
-          <li><span class="ic">1</span><div><b>Resposta em minutos, não em dias</b><span>Assim que sua mensagem chega, alguém da equipe fala com você. Se preferir, a gente liga: é mais rápido resolver a agenda por telefone.</span></div></li>
-          <li><span class="ic">2</span><div><b>Se você não responder na hora, a gente volta</b><span>Você já adiou isso tempo demais. Não vamos deixar a sua mensagem se perder no meio da correria, e vamos procurar você até conseguir marcar.</span></div></li>
-          <li><span class="ic">3</span><div><b>Na consulta, o raio-x sai na hora</b><span>Você vê a imagem da sua boca na tela, conversa com o dentista e sai sabendo exatamente o que dá para fazer no seu caso.</span></div></li>
-          <li><span class="ic">4</span><div><b>Leve seus exames e a lista de remédios</b><span>Se você toma medicação contínua, tem diabetes ou pressão alta, isso ajuda o dentista a planejar melhor. Se não tiver em mãos, vá assim mesmo.</span></div></li>
+          <li><span class="ic">1</span><div><b>Resposta em minutos, não em dias</b><span>Alguém da equipe fala com você. Se preferir, a gente liga.</span></div></li>
+          <li><span class="ic">2</span><div><b>Se você não responder na hora, a gente volta</b><span>Você já adiou tempo demais. A gente procura você até conseguir marcar.</span></div></li>
+          <li><span class="ic">3</span><div><b>Leve seus exames e a lista de remédios</b><span>Se toma remédio contínuo, tem diabetes ou pressão alta, leve a lista.</span></div></li>
         </ul>
       </div>
 
@@ -766,8 +795,7 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
       <div>
         <p class="eyebrow">O que é a prótese protocolo</p>
         <h2>Toda a arcada em cima de poucos implantes</h2>
-        <p class="lede">Não é um implante para cada dente. A prótese é uma peça única, fixada sobre implantes que se integram ao osso, normalmente <strong>seis na arcada de cima e quatro na de baixo</strong>.</p>
-        <p class="lede">É por isso que ela não sai do lugar, não cobre o céu da boca e permite morder o que a dentadura não deixa.</p>
+        <p class="lede">Não é um implante para cada dente. A prótese é uma peça única, fixada sobre <strong>seis implantes em cima e quatro embaixo</strong>. Por isso ela não sai do lugar e não cobre o céu da boca.</p>
         <div style="margin-top:26px"><a class="btn btn--ghost" href="#agendar">Descobrir quantos implantes o meu caso precisa</a></div>
       </div>
 
@@ -865,7 +893,7 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
       <div class="sec-top">
         <p class="eyebrow">A pergunta que todo mundo faz</p>
         <h2>Qual a diferença entre dentadura e prótese protocolo?</h2>
-        <p class="lede">A dentadura apoia na gengiva e cobre o céu da boca. O protocolo é fixado sobre implantes que ficam dentro do osso. Vendo de cima, a diferença fica óbvia.</p>
+        <p class="lede">A dentadura apoia na gengiva. O protocolo é fixo, sobre implantes dentro do osso.</p>
       </div>
 
       <!-- dois diagramas lado a lado -->
@@ -901,7 +929,7 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
               <text x="120" y="215" text-anchor="middle" font-family="Poppins,sans-serif" font-size="13" font-weight="600" fill="#8A5E57">apoia na gengiva · sem implante</text>
             </svg>
           </div>
-          <p class="caption">A placa de acrílico precisa cobrir o palato inteiro para criar sucção e não cair. <b>É o que faz o gosto da comida sumir</b>, e ainda assim ela se solta ao falar e ao rir.</p>
+          <p class="caption">A placa cobre o céu da boca inteiro para não cair. <b>É o que faz o gosto da comida sumir.</b></p>
         </div>
 
         <div class="pair-item good">
@@ -935,7 +963,7 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
               <text x="120" y="215" text-anchor="middle" font-family="Poppins,sans-serif" font-size="13" font-weight="600" fill="#4B7021">fixa sobre 6 implantes</text>
             </svg>
           </div>
-          <p class="caption">Só a faixa dos dentes. O palato fica descoberto, então <b>você volta a sentir sabor e temperatura</b>, e nada se solta, porque a peça fica presa aos implantes.</p>
+          <p class="caption">Só a faixa dos dentes. O céu da boca fica livre, então <b>você volta a sentir o sabor</b>.</p>
         </div>
       </div>
 
@@ -944,33 +972,33 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
       <div class="cmp">
         <div class="crow">
           <div class="lab">Mastigação</div>
-          <div class="cell no"><span class="tiny">Dentadura</span>Evita carne, maçã, pão com casca</div>
-          <div class="cell yes"><span class="tiny">Protocolo</span>Morde de tudo, inclusive carne e espiga</div>
+          <div class="cell no"><span class="tiny">Dentadura</span>Evita carne e pão com casca</div>
+          <div class="cell yes"><span class="tiny">Protocolo</span>Morde de tudo</div>
         </div>
         <div class="crow">
           <div class="lab">Céu da boca</div>
-          <div class="cell no"><span class="tiny">Dentadura</span>Coberto pela placa, o gosto da comida some</div>
-          <div class="cell yes"><span class="tiny">Protocolo</span>Livre. Você volta a sentir sabor e temperatura</div>
+          <div class="cell no"><span class="tiny">Dentadura</span>Coberto: o gosto da comida some</div>
+          <div class="cell yes"><span class="tiny">Protocolo</span>Livre: você sente o sabor</div>
         </div>
         <div class="crow">
           <div class="lab">Fixação</div>
-          <div class="cell no"><span class="tiny">Dentadura</span>Solta ao falar e rir; depende de pomada</div>
+          <div class="cell no"><span class="tiny">Dentadura</span>Solta ao falar e rir</div>
           <div class="cell yes"><span class="tiny">Protocolo</span>Fixa. Só o dentista retira</div>
         </div>
-        <div class="crow">
+        <div class="crow" data-secundaria>
           <div class="lab">Osso</div>
-          <div class="cell no"><span class="tiny">Dentadura</span>O osso continua encolhendo com os anos</div>
-          <div class="cell yes"><span class="tiny">Protocolo</span>O implante estimula o osso e freia a reabsorção</div>
+          <div class="cell no"><span class="tiny">Dentadura</span>O osso vai encolhendo</div>
+          <div class="cell yes"><span class="tiny">Protocolo</span>O implante segura o osso</div>
         </div>
         <div class="crow">
           <div class="lab">Rosto</div>
-          <div class="cell no"><span class="tiny">Dentadura</span>A boca vai "afundando" com o tempo</div>
-          <div class="cell yes"><span class="tiny">Protocolo</span>Sustenta o lábio e o contorno do rosto</div>
+          <div class="cell no"><span class="tiny">Dentadura</span>A boca vai afundando</div>
+          <div class="cell yes"><span class="tiny">Protocolo</span>Sustenta o contorno do rosto</div>
         </div>
-        <div class="crow">
+        <div class="crow" data-secundaria>
           <div class="lab">Implantes</div>
-          <div class="cell no"><span class="tiny">Dentadura</span>Nenhum, e nenhuma estabilidade</div>
-          <div class="cell yes"><span class="tiny">Protocolo</span>Geralmente 6 em cima e 4 embaixo</div>
+          <div class="cell no"><span class="tiny">Dentadura</span>Nenhum</div>
+          <div class="cell yes"><span class="tiny">Protocolo</span>6 em cima e 4 embaixo</div>
         </div>
       </div>
     </div>
@@ -1059,9 +1087,8 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
       <div style="order:1">
         <p class="eyebrow">O que quase ninguém explica</p>
         <h2>Por que a boca vai "afundando" com a dentadura</h2>
-        <p class="lede">O osso da mandíbula só se mantém quando recebe força de mastigação. A raiz do dente é o que transmite essa força. Sem raiz, o corpo entende que aquele osso não é mais necessário e ele vai diminuindo ano após ano.</p>
-        <p class="lede">A dentadura apoia por cima e não transmite nada, pelo contrário, a pressão acelera esse processo. É por isso que uma dentadura que servia há cinco anos hoje solta, e é por isso que o lábio vai perdendo sustentação e o rosto parece envelhecer mais rápido.</p>
-        <p class="lede">O implante ocupa o lugar da raiz. Ele transmite a força mastigatória de volta para o osso e freia esse processo.</p>
+        <p class="lede">O osso só se mantém quando recebe força de mastigação, e quem transmite essa força é a raiz do dente. Sem raiz, ele vai diminuindo ano após ano.</p>
+        <p class="lede">A dentadura apoia por cima e não transmite nada. O implante ocupa o lugar da raiz e devolve essa força ao osso.</p>
       </div>
     </div>
   </section>
@@ -1086,7 +1113,7 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
           </svg>
           <span class="n"></span>
           <h3>Avaliação e raio-x</h3>
-          <p>O dentista examina, tira o panorâmico e mede seu osso ali mesmo. Você sai sabendo quantos implantes precisa e se há necessidade de enxerto.</p>
+          <p>O dentista examina, tira o panorâmico e mede seu osso. Você sai sabendo quantos implantes precisa.</p>
         </div>
 
         <div class="stepcard">
@@ -1100,7 +1127,7 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
           </svg>
           <span class="n"></span>
           <h3>Plano de tratamento</h3>
-          <p>O dentista define com você quantos implantes serão necessários e onde cada um vai ficar. Você aprova o plano por escrito antes de marcar o procedimento.</p>
+          <p>Você aprova o plano por escrito antes de marcar o procedimento.</p>
         </div>
 
         <div class="stepcard">
@@ -1116,7 +1143,7 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
           </svg>
           <span class="n"></span>
           <h3>O procedimento e a prótese</h3>
-          <p>Os implantes são colocados com anestesia local <span class="fill">(e sedação, se indicado)</span>. Em carga imediata, você sai da clínica com a prótese fixa no lugar.</p>
+          <p>Os implantes são colocados com anestesia local <span class="fill">(e sedação, se indicado)</span>. Em carga imediata, você sai com a prótese fixa.</p>
           <span class="when">Sorriso de volta em 7 dias, quando o caso permite</span>
         </div>
 
@@ -1130,7 +1157,7 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
       <div class="sec-top">
         <p class="eyebrow">O tipo de transformação</p>
         <h2>Antes e depois, separados por tipo de caso</h2>
-        <p class="lede">Cada pessoa chega numa situação diferente. Procure abaixo o caso que mais se parece com o seu.</p>
+        <p class="lede">Procure o caso que mais se parece com o seu.</p>
       </div>
       <div class="ba">
 
@@ -1141,7 +1168,7 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
           </div>
           <div class="meta">
             <h4>Perdeu alguns dentes</h4>
-            <p>Implantes colocados só nos espaços vazios, sem mexer nos dentes que ainda estão bons.</p>
+            <p>Implantes só nos espaços vazios.</p>
           </div>
         </div>
 
@@ -1152,7 +1179,7 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
           </div>
           <div class="meta">
             <h4>Perdeu a arcada de cima</h4>
-            <p>Prótese protocolo na arcada de cima, apoiada em seis implantes, com o céu da boca livre.</p>
+            <p>Protocolo na arcada de cima, com o céu da boca livre.</p>
           </div>
         </div>
 
@@ -1163,7 +1190,7 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
           </div>
           <div class="meta">
             <h4>Usava dentadura</h4>
-            <p>Protocolo nas duas arcadas. A diferença aparece até no contorno do rosto e no jeito de falar.</p>
+            <p>Protocolo nas duas arcadas.</p>
           </div>
         </div>
 
@@ -1178,9 +1205,9 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
       <div>
         <p class="eyebrow">A pergunta que quase ninguém faz em voz alta</p>
         <h2>Quanto vai custar o meu caso?</h2>
-        <p class="lede">Não existe valor de tabela para prótese protocolo, porque não existem duas bocas iguais. O que define o seu orçamento é o que aparece no raio-x: quanto osso você tem, quantos implantes o seu caso pede e se há ou não necessidade de enxerto.</p>
-        <p class="lede">Por isso o valor é apresentado na avaliação, com o exame na tela e o dentista explicando cada item. Você recebe tudo por escrito, com cada item explicado, e leva o documento com você.</p>
-        <p class="lede">Por norma do Conselho Federal de Odontologia, clínicas não podem divulgar preços nem formas de pagamento em publicidade. Na consulta, o dentista apresenta todas as opções disponíveis para você.</p>
+        <p class="lede">Não existe valor de tabela, porque não existem duas bocas iguais. O que define o seu orçamento é o que aparece no raio-x.</p>
+        <p class="lede">O valor é apresentado na avaliação, com o exame na tela. Você leva tudo por escrito.</p>
+        <p class="lede">Por norma do Conselho Federal de Odontologia, clínicas não podem divulgar preços em publicidade.</p>
         <div class="pic" style="aspect-ratio:3/2;margin-top:24px">
           <img src="img/raiox.jpg" alt="Dentista da unidade analisando um raio-x panorâmico" loading="lazy" width="1000" height="665">
           <span class="cap">É o raio-x que define o seu caso</span>
@@ -1191,11 +1218,11 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
         <h3>Como o seu orçamento é montado</h3>
         <p class="sub">Sem tabela pronta, porque não existe caso igual a outro.</p>
         <ol>
-          <li><div><b>O raio-x panorâmico define tudo.</b> Quanto osso você tem, como é a estrutura da sua arcada e quais dentes ainda dá para manter.</div></li>
-          <li><div><b>Número de implantes.</b> Uma arcada com osso bom precisa de menos implantes que uma com reabsorção avançada.</div></li>
-          <li><div><b>Necessidade de enxerto.</b> Quando falta osso, entra uma etapa a mais, e isso muda prazo e valor.</div></li>
-          <li><div><b>Material da prótese.</b> Existem opções diferentes, e o dentista apresenta cada uma com suas vantagens.</div></li>
-          <li><div><b>Você recebe por escrito.</b> Plano de tratamento e orçamento fechado, no papel, com o nome do dentista responsável pelo seu caso.</div></li>
+          <li><div><b>O raio-x define tudo.</b> Quanto osso você tem e quais dentes dá para manter.</div></li>
+          <li><div><b>Número de implantes.</b> Osso bom precisa de menos implantes.</div></li>
+          <li><div><b>Necessidade de enxerto.</b> Quando falta osso, muda prazo e valor.</div></li>
+          <li><div><b>Material da prótese.</b> O dentista apresenta as opções.</div></li>
+          <li><div><b>Você recebe por escrito.</b> Com o nome do dentista responsável.</div></li>
         </ol>
         <a class="btn btn--go btn--block" href="#agendar">Agendar minha avaliação</a>
       </div>
@@ -1208,7 +1235,7 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
       <div class="sec-top">
         <p class="eyebrow">Pacientes Sorrifácil</p>
         <h2>Uma transformação que faz qualquer um sorrir</h2>
-        <p class="lede">A transformação que a prótese protocolo trouxe para os nossos pacientes, contada por eles mesmos.</p>
+        <p class="lede">A transformação da prótese protocolo, contada por quem fez.</p>
       </div>
       <div class="vids">
         <div class="vid">
@@ -1231,7 +1258,7 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
             <cite>Cristiane · prótese protocolo</cite>
           </div>
         </div>
-        <div class="vid">
+        <div class="vid" data-extra>
           <button class="frame" type="button" data-yt="FhDn6c_xokM" data-fala="“Se eu soubesse que era tão simples ter meu sorriso de volta, eu teria feito há muito tempo.”" data-quem="Lurdes da Silva · prótese protocolo" aria-label="Assistir: depoimento de Lurdes da Silva">
             <img src="img/v-lurdes.jpg" alt="" loading="lazy" width="800" height="450">
             <div class="play"></div><span class="tag">Assistir</span>
@@ -1241,7 +1268,7 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
             <cite>Lurdes da Silva · prótese protocolo</cite>
           </div>
         </div>
-        <div class="vid">
+        <div class="vid" data-extra>
           <button class="frame" type="button" data-yt="aSBlwQhLtlw" data-fala="Rita redescobriu o próprio sorriso aqui na Sorrifácil." data-quem="Rita · paciente Sorrifácil" aria-label="Assistir: Rita redescobriu seu sorriso">
             <img src="img/v-rita.jpg" alt="" loading="lazy" width="800" height="450">
             <div class="play"></div><span class="tag">Assistir</span>
@@ -1252,6 +1279,7 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
           </div>
         </div>
       </div>
+      <button class="btn btn--ghost ver-mais" type="button">Ver mais 2 depoimentos</button>
     </div>
   </section>
 
@@ -1261,7 +1289,7 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
       <div>
         <p class="eyebrow">Seu sorriso está aqui, pertinho de você</p>
         <h2>Vem pra Sorrifácil Itapema</h2>
-        <p class="lede" style="margin-bottom:26px">Quem te atende na avaliação é quem vai cuidar do seu tratamento. Abaixo, onde ficamos, o horário e quem são os dentistas da unidade.</p>
+        <p class="lede" style="margin-bottom:26px">Quem te atende na avaliação é quem vai cuidar do seu tratamento.</p>
         <ul class="addr">
           <li><span class="ic">◎</span><div><b>Endereço</b><span>R. 246, 280, Meia Praia, Itapema/SC, 88220-000</span><br><span>Perto do Shopping Russi &amp; Russi, a poucas quadras da praia</span></div></li>
           <li><span class="ic">◷</span><div><b>Horário</b><span>Segunda a sexta, 9h às 12h e 13h às 19h<br>Sábado, 8h às 12h<br>Domingo fechado</span></div></li>
@@ -1276,7 +1304,7 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
             <div class="doc-t">
             <h4>Dr. Carlos Eduardo Borges Serafim</h4>
             <p class="cro">CRO-SC 10971 · Implantodontia, HOF e Ortodontia</p>
-            <p>Conhecido pelo cuidado, pela atenção e pelo comprometimento com cada paciente. Oferece tratamentos modernos, seguros e eficazes.</p>
+            <p>Atende com cuidado e atenção em cada etapa do tratamento.</p>
             <ul class="facts">
               <li><b>Natural de</b> Presidente Prudente, SP</li>
               <li><b>Fora da clínica</b> musculação</li>
@@ -1288,7 +1316,7 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
             <div class="doc-t">
             <h4>Dr. Marcos Vieira</h4>
             <p class="cro">CRO-SC 23960 · Implantodontia, Prótese e Clínica Geral</p>
-            <p>Especialista dedicado da Sorrifácil, com sólida formação e experiência em implantes e prótese.</p>
+            <p>Formação e experiência em implantes e prótese.</p>
             <ul class="facts">
               <li><b>Natural de</b> Pouso Redondo, SC</li>
               <li><b>Fora da clínica</b> viajar e conhecer restaurantes</li>
@@ -1300,7 +1328,7 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
             <div class="doc-t">
             <h4>Dra. Alexia Lima Rodrigues</h4>
             <p class="cro">CRO-RS 19141 <span class="fill">+ inscrição CRO-SC</span> · Ortodontia</p>
-            <p>Ortodontista da unidade, conhecida pelo cuidado e pela atenção no atendimento.</p>
+            <p>Ortodontista da unidade.</p>
             <ul class="facts">
               <li><b>Natural de</b> Palmeira das Missões, RS</li>
               <li><b>Fora da clínica</b> jogar padel</li>
@@ -1339,7 +1367,7 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
         <h2>As perguntas que travam a decisão</h2>
       </div>
       <div class="faq">
-        <details open>
+        <details>
           <summary>Dói? Eu tenho medo do procedimento.</summary>
           <div class="ans">Essa é a pergunta número 1 e merece uma resposta honesta em vez de "é tranquilo". Durante o procedimento você não sente dor: é anestesia local <span class="fill">(e sedação consciente, se indicado no seu caso)</span>.</div>
         </details>
@@ -1554,6 +1582,15 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
     entradas.forEach(function(e){ if (e.isIntersecting){ contar(e.target); io2.unobserve(e.target); } });
   }, {threshold:0.6});
   document.querySelectorAll('.trustbar .n').forEach(function(n){ io2.observe(n); });
+})();
+</script>
+<script>
+(function(){
+  var b = document.querySelector('.ver-mais'); if (!b) return;
+  b.addEventListener('click', function(){
+    document.querySelector('.vids').classList.add('aberto');
+    b.remove();
+  });
 })();
 </script>
 </body>
