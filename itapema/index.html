@@ -758,6 +758,17 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
   .clinic > div:last-child{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
   .clinic > div:last-child > .pic{aspect-ratio:4/3 !important}
 }
+
+/* passos mais compactos */
+.stepcard .icon{width:48px;height:48px;margin-bottom:12px}
+.stepcard h3{font-size:19px;margin-bottom:6px}
+.stepcard p{font-size:16px}
+@media(max-width:640px){
+  .steps{gap:12px}
+  .stepcard{padding:18px}
+  .stepcard .icon{width:42px;height:42px;margin-bottom:10px}
+  .stepcard .n{margin-bottom:6px}
+}
 </style>
 
 <div class="page">
@@ -1121,7 +1132,7 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
           </svg>
           <span class="n"></span>
           <h3>Avaliação e raio-x</h3>
-          <p>A gente examina, tira o panorâmico e mede o seu osso. Você sai sabendo quantos implantes precisa.</p>
+          <p>A gente examina e tira o panorâmico. Você sai sabendo quantos implantes precisa.</p>
         </div>
 
         <div class="stepcard">
@@ -1135,7 +1146,7 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
           </svg>
           <span class="n"></span>
           <h3>Plano de tratamento</h3>
-          <p>Você aprova o plano por escrito antes de marcar o procedimento.</p>
+          <p>Você aprova por escrito antes de marcar.</p>
         </div>
 
         <div class="stepcard">
@@ -1150,8 +1161,8 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
             <path d="M40,50 L46,56 L57,43" fill="none" stroke="#5E8A2B" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <span class="n"></span>
-          <h3>O procedimento e a prótese</h3>
-          <p>A gente coloca os implantes com anestesia local <span class="fill">(e sedação, se indicado)</span>. Em carga imediata, você sai com a prótese fixa.</p>
+          <h3>O procedimento</h3>
+          <p>A gente coloca os implantes com anestesia local. Em carga imediata, você sai com a prótese fixa.</p>
           <span class="when">Sorriso de volta em 7 dias, quando o caso permite</span>
         </div>
 
