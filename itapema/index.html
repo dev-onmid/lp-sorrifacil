@@ -637,6 +637,29 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
   .crow[data-secundaria]{display:none}
 }
 .ver-mais{display:none}
+
+/* ============ celular: hero compacto, foto ao fundo ============ */
+@media(max-width:640px){
+  .hero{background:#fff;position:relative}
+  .hero-grid{display:block;position:relative;min-height:430px;padding:0;gap:0}
+  .hero-grid > div:first-child{position:relative;z-index:2;padding:22px 22px 28px;max-width:83%}
+  .hero-photo{position:absolute;inset:0;width:100%;height:100%;margin:0;z-index:1}
+  .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:78% 38%}
+  .hero-photo{-webkit-mask-image:none;mask-image:none}
+  /* véu claro para o texto ficar legível por cima da foto */
+  .hero-photo::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(104deg,
+      rgba(255,255,255,.97) 0%, rgba(255,255,255,.93) 38%,
+      rgba(255,255,255,.62) 62%, rgba(255,255,255,.12) 82%, transparent 100%);
+  }
+  .hero .place{font-size:11px;padding:5px 11px;margin-bottom:12px}
+  .hero h1{font-size:30px;line-height:1.04}
+  .hero h1 em{display:none}
+  .hero .sub{font-size:15.5px;margin-top:12px}
+  .hero-cta{margin-top:18px}
+  .hero-cta .btn{font-size:15px;padding:14px 18px}
+}
 </style>
 
 <div class="page">
@@ -659,10 +682,6 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
         <h1>Volte a morder pão francês. <em>Com dentes fixos, não com dentadura.</em></h1>
         <p class="sub">Dente fixo, apoiado em <strong>6 implantes em cima e 4 embaixo</strong>. Você volta a mastigar de tudo.</p>
         <div class="hero-cta"><a class="btn btn--go" href="#agendar">Ver se meu caso tem solução →</a></div>
-        <div class="reassure">
-          <div><span class="tick">✓</span><span>Avaliação com <strong>raio-x panorâmico</strong>, feita por dentista</span></div>
-          <div><span class="tick">✓</span><span>Você sai sabendo quantos implantes precisa</span></div>
-        </div>
       </div>
       <div class="hero-photo">
         <img src="img/hero.jpg" alt="Casal sorrindo, com a orla de Itapema ao fundo" width="1200" height="900" fetchpriority="high">
