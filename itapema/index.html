@@ -682,6 +682,44 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
 .why-list .passo-chave{background:#EDF6E4;border:1px solid #C9E0B0;border-radius:12px;padding:14px 16px;margin:2px -4px}
 .why-list .passo-chave .ic{background:var(--green);color:#fff}
 .why-list .passo-chave b{color:var(--green-dark)}
+
+/* foto única da prótese, no lugar da galeria */
+.proto-solo{margin:26px 0 0;grid-column:1/-1;background:#fff;border:1px solid var(--rule);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.proto-solo img{display:block;width:100%;height:auto}
+.proto-solo figcaption{padding:14px 18px 16px;font-size:15.5px;color:var(--ink-2)}
+@media(max-width:640px){.proto-solo figcaption{font-size:14.5px;padding:12px 14px 14px}}
+
+/* celular: os dois diagramas lado a lado, para comparar numa olhada */
+@media(max-width:640px){
+  .pair{grid-template-columns:1fr 1fr;gap:10px}
+  .pair-item .top{padding:12px 12px 2px}
+  .pair-item h4{font-size:15px;line-height:1.2}
+  .pair-item .sub{font-size:11px;line-height:1.25}
+  .pair-item .art{padding:2px 6px 0}
+  .pair-item .caption{padding:10px 12px 14px;font-size:13px;line-height:1.4}
+}
+
+/* celular: um "vs" no meio da comparação, no lugar de repetir os rótulos */
+@media(max-width:640px){
+  .cmp{gap:14px}
+  .crow{grid-template-columns:1fr 34px 1fr;align-items:stretch;gap:0}
+  .crow .lab{grid-column:1/-1;text-align:center;font-size:12px;letter-spacing:.1em;color:var(--blue-700);padding:0 0 8px}
+  .crow .cell .tiny{display:none}
+  .crow .cell{display:flex;align-items:center;font-size:15px;line-height:1.35;padding:13px 13px}
+  .crow .cell.no{border-radius:12px 0 0 12px;border-right:0}
+  .crow .cell.yes{border-radius:0 12px 12px 0;border-left:0}
+  /* o "vs" fica entre as duas colunas */
+  .crow::after{
+    content:"vs";grid-row:2;grid-column:2;align-self:center;justify-self:center;
+    font-family:Poppins,sans-serif;font-size:11px;font-weight:700;letter-spacing:.04em;
+    color:var(--ink-3);background:#fff;border:1px solid var(--rule);
+    width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    position:relative;z-index:2;
+  }
+}
+
+/* letra miúda do antes e depois, discreta e fora do estilo de nota */
+.miudo{margin:16px 0 0;font-size:12.5px;line-height:1.5;color:var(--ink-3);max-width:70ch}
 </style>
 
 <div class="page">
@@ -899,32 +937,10 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
         </svg>
         <figcaption class="figcap">Diagrama ilustrativo. O número e a posição dos implantes são definidos no raio-x da avaliação, caso a caso.</figcaption>
       </figure>
-      <div class="protos">
-        <figure class="proto-item">
-          <span class="proto-img"><img src="img/protese.jpg" alt="Duas próteses protocolo sobre a bancada da clínica" loading="lazy" width="1000" height="665"></span>
-          <figcaption>A peça de perto, com os implantes aparecendo por baixo</figcaption>
-        </figure>
-        <figure class="proto-item">
-          <span class="proto-img"><img src="img/protese2.jpg" alt="Dentista da Sorrifácil segurando um modelo de prótese protocolo" loading="lazy" width="900" height="598"></span>
-          <figcaption>O modelo que o dentista mostra na avaliação</figcaption>
-        </figure>
-        <figure class="proto-item proto-item--ilustra">
-          <span class="proto-img"><img src="img/prot-arcadas.jpg" alt="Ilustração de prótese protocolo apoiada em implantes" loading="lazy" width="600" height="400"><span class="proto-tag">ilustração</span></span>
-          <figcaption>A prótese se apoia nos implantes, não na gengiva</figcaption>
-        </figure>
-        <figure class="proto-item proto-item--ilustra">
-          <span class="proto-img"><img src="img/prot-encaixe.jpg" alt="Ilustração mostrando a prótese encaixando nos implantes" loading="lazy" width="600" height="400"><span class="proto-tag">ilustração</span></span>
-          <figcaption>Como a peça encaixa nos quatro implantes de baixo</figcaption>
-        </figure>
-        <figure class="proto-item proto-item--ilustra">
-          <span class="proto-img"><img src="img/prot-unitario.jpg" alt="Ilustração de implante unitário com coroa" loading="lazy" width="600" height="400"><span class="proto-tag">ilustração</span></span>
-          <figcaption>Quando falta um dente só, o implante é individual</figcaption>
-        </figure>
-        <figure class="proto-item proto-item--ilustra">
-          <span class="proto-img"><img src="img/prot-partes.jpg" alt="Ilustração das partes de um implante: parafuso, pilar e coroa" loading="lazy" width="600" height="400"><span class="proto-tag">ilustração</span></span>
-          <figcaption>As três partes: o implante, o pilar e a coroa</figcaption>
-        </figure>
-      </div>
+      <figure class="proto-solo">
+        <img src="img/protese2.jpg" alt="Dentista da Sorrifácil segurando um modelo de prótese protocolo" loading="lazy" width="900" height="598">
+        <figcaption>O modelo que o dentista mostra na avaliação</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -1046,93 +1062,6 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
   </section>
 
   <!-- ══════════ OSSO ══════════ -->
-  <section class="band">
-    <div class="pad mech">
-      <figure class="figure diag-card" style="order:2">
-        <svg viewBox="0 0 480 250" role="img" aria-label="Vista por dentro da mandíbula comparando a perda de osso sob a dentadura com a manutenção do osso ao redor do implante">
-          <defs>
-            <linearGradient id="gBone" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#EFE7D6"/><stop offset="1" stop-color="#D6C7A8"/>
-            </linearGradient>
-            <linearGradient id="gGum" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#E9B6AE"/><stop offset="1" stop-color="#D2938A"/>
-            </linearGradient>
-          </defs>
-
-          <!-- LEFT: with dentadura -->
-          <g>
-            <text x="110" y="24" text-anchor="middle" font-family="Poppins,sans-serif" font-size="14" font-weight="700" fill="#8A5E57">COM DENTADURA</text>
-            <!-- original bone outline (dashed) -->
-            <path d="M24,86 C60,62 160,62 196,86 L196,200 L24,200 Z" fill="none" stroke="#B9A88A" stroke-width="2" stroke-dasharray="6 5"/>
-            <!-- actual (shrunken) bone -->
-            <path d="M24,132 C60,116 160,116 196,132 L196,200 L24,200 Z" fill="url(#gBone)" stroke="#BFAE90" stroke-width="2"/>
-            <!-- gum over bone -->
-            <path d="M24,132 C60,116 160,116 196,132 L196,146 C160,131 60,131 24,146 Z" fill="url(#gGum)" opacity=".85"/>
-            <!-- denture plate resting -->
-            <path d="M28,118 C62,102 158,102 192,118 L192,132 C158,117 62,117 28,132 Z" fill="#FBF7F1" stroke="#C9BCA6" stroke-width="2"/>
-            <g fill="#FBF7F1" stroke="#C9BCA6" stroke-width="1.6">
-              <rect x="44" y="96" width="19" height="20" rx="6"/><rect x="72" y="92" width="19" height="22" rx="6"/>
-              <rect x="100" y="90" width="19" height="23" rx="6"/><rect x="128" y="92" width="19" height="22" rx="6"/>
-              <rect x="156" y="96" width="19" height="20" rx="6"/>
-            </g>
-            <!-- loss arrow -->
-            <g stroke="#B0554A" stroke-width="2" fill="none">
-              <path d="M210,88 L210,130" marker-end="url(#ar)"/>
-            </g>
-            <text x="216" y="104" font-family="Poppins,sans-serif" font-size="12.5" font-weight="700" fill="#B0554A">osso</text>
-            <text x="216" y="120" font-family="Poppins,sans-serif" font-size="12.5" font-weight="700" fill="#B0554A">perdido</text>
-            <text x="110" y="224" text-anchor="middle" font-family="Mulish,sans-serif" font-size="13" fill="#44585F">com o tempo, o osso vai diminuindo</text>
-          </g>
-
-          <line x1="258" y1="30" x2="258" y2="210" stroke="#DCE6E9" stroke-width="2"/>
-
-          <!-- RIGHT: with implante -->
-          <g transform="translate(272,0)">
-            <text x="100" y="24" text-anchor="middle" font-family="Poppins,sans-serif" font-size="14" font-weight="700" fill="#4B7021">COM IMPLANTE</text>
-            <path d="M14,86 C50,62 150,62 186,86 L186,200 L14,200 Z" fill="url(#gBone)" stroke="#BFAE90" stroke-width="2"/>
-            <path d="M14,86 C50,62 150,62 186,86 L186,100 C150,77 50,77 14,100 Z" fill="url(#gGum)" opacity=".85"/>
-            <!-- implants -->
-            <g>
-              <g transform="translate(58,72)">
-                <path d="M-8,0 L8,0 L5.4,52 L-5.4,52 Z" rx="4" fill="#C8D6DD" stroke="#9BB0BB" stroke-width="1.6" stroke-linejoin="round"/>
-                <g stroke="#A9BCC5" stroke-width="1" opacity=".8">
-                  <path d="M-7.4,16 L7.4,16"/><path d="M-6.6,32 L6.6,32"/>
-                </g>
-              </g>
-              <g transform="translate(142,72)">
-                <path d="M-8,0 L8,0 L5.4,52 L-5.4,52 Z" rx="4" fill="#C8D6DD" stroke="#9BB0BB" stroke-width="1.6" stroke-linejoin="round"/>
-                <g stroke="#A9BCC5" stroke-width="1" opacity=".8">
-                  <path d="M-7.4,16 L7.4,16"/><path d="M-6.6,32 L6.6,32"/>
-                </g>
-              </g>
-            </g>
-            <!-- fixed prosthesis bar -->
-            <path d="M20,58 C54,42 146,42 180,58 L180,74 C146,58 54,58 20,74 Z" fill="#FBF7F1" stroke="#C9BCA6" stroke-width="2"/>
-            <g fill="#FBF7F1" stroke="#C9BCA6" stroke-width="1.6">
-              <rect x="36" y="36" width="19" height="20" rx="6"/><rect x="64" y="32" width="19" height="22" rx="6"/>
-              <rect x="92" y="30" width="19" height="23" rx="6"/><rect x="120" y="32" width="19" height="22" rx="6"/>
-              <rect x="148" y="36" width="19" height="20" rx="6"/>
-            </g>
-            <text x="100" y="224" text-anchor="middle" font-family="Mulish,sans-serif" font-size="13" fill="#44585F">o implante devolve a força ao osso</text>
-          </g>
-
-          <defs>
-            <marker id="ar" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
-              <path d="M1,1 L7,4 L1,7 Z" fill="#B0554A"/>
-            </marker>
-          </defs>
-        </svg>
-        <figcaption class="figcap">Esquema de como fica por dentro da mandíbula. Ilustração didática, não representa medidas clínicas.</figcaption>
-      </figure>
-
-      <div style="order:1">
-        <p class="eyebrow">O que quase ninguém explica</p>
-        <h2>Por que a boca vai "afundando" com a dentadura</h2>
-        <p class="lede">O osso só se mantém quando recebe força de mastigação, e quem transmite essa força é a raiz do dente. Sem raiz, ele vai diminuindo ano após ano.</p>
-        <p class="lede">A dentadura apoia por cima e não transmite nada. O implante ocupa o lugar da raiz e devolve essa força ao osso.</p>
-      </div>
-    </div>
-  </section>
 
   <!-- ══════════ COMO FUNCIONA ══════════ -->
   <section class="band band--ground">
@@ -1196,9 +1125,9 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
   <section class="band">
     <div class="pad">
       <div class="sec-top">
-        <p class="eyebrow">O tipo de transformação</p>
-        <h2>Antes e depois, separados por tipo de caso</h2>
-        <p class="lede">Procure o caso que mais se parece com o seu.</p>
+        <p class="eyebrow">Gente que voltou a sorrir</p>
+        <h2>O dia em que a pessoa volta a sorrir sem tampar a boca</h2>
+        <p class="lede">Veja quem chegou parecido com você.</p>
       </div>
       <div class="ba">
 
@@ -1236,7 +1165,7 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
         </div>
 
       </div>
-      <p class="figcap" style="margin-top:18px;text-align:left;max-width:74ch">Imagens ilustrativas, criadas para demonstrar o tipo de transformação. Não são fotos de pacientes da clínica. Resultados variam conforme o caso clínico.</p>
+      <p class="miudo">Imagens ilustrativas. Resultados variam conforme o caso clínico.</p>
     </div>
   </section>
 
