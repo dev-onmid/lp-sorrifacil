@@ -600,9 +600,9 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
 /* ============ celular: menos empilhamento ============ */
 @media(max-width:640px){
   /* fotos da clínica lado a lado, em vez de uma embaixo da outra */
-  .clinic > div:last-child{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start}
-  .clinic > div:last-child > .pic{aspect-ratio:1/1 !important;margin:0}
-  .clinic > div:last-child > .pic .cap{font-size:11px;padding:4px 8px;left:7px;bottom:7px}
+  .clinic > .fotos{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start}
+  .clinic > .fotos > .pic{aspect-ratio:1/1 !important;margin:0}
+  .clinic > .fotos > .pic .cap{font-size:11px;padding:4px 8px;left:7px;bottom:7px}
   .clinic .btn--ghost{width:100%;justify-content:center}
 
   /* dois depoimentos primeiro; os outros entram no botão */
@@ -732,8 +732,8 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
 .vids.aberto .vid[data-extra]{display:block}
 .ver-mais{display:flex;width:100%;max-width:420px;margin:18px auto 0;justify-content:center}
 @media(min-width:641px){
-  .clinic > div:last-child{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
-  .clinic > div:last-child > .pic{aspect-ratio:4/3 !important}
+  .clinic > .fotos{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+  .clinic > .fotos > .pic{aspect-ratio:4/3 !important}
 }
 
 /* passos mais compactos */
@@ -780,13 +780,13 @@ button.frame{border:0;padding:0;cursor:pointer;display:block;width:100%;text-ali
 a.pic .cap{color:var(--blue-700);font-weight:600}
 a.pic:hover .cap{text-decoration:underline}
 @media(max-width:640px){
-  .clinic > div:last-child > .pic{aspect-ratio:auto!important}
-  .clinic > div:last-child > .pic .pic-frame{aspect-ratio:1/1}
-  .clinic > div:last-child > .pic .cap{font-size:11.5px;margin-top:6px}
+  .clinic > .fotos > .pic{aspect-ratio:auto!important}
+  .clinic > .fotos > .pic .pic-frame{aspect-ratio:1/1}
+  .clinic > .fotos > .pic .cap{font-size:11.5px;margin-top:6px}
 }
 @media(min-width:641px){
-  .clinic > div:last-child > .pic{aspect-ratio:auto!important}
-  .clinic > div:last-child > .pic .pic-frame{aspect-ratio:4/3}
+  .clinic > .fotos > .pic{aspect-ratio:auto!important}
+  .clinic > .fotos > .pic .pic-frame{aspect-ratio:4/3}
 }
 
 /* botoes sempre em uma linha so */
@@ -804,6 +804,19 @@ a.pic:hover .cap{text-decoration:underline}
   .fab{width:60px;height:60px;padding:0;gap:0;justify-content:center;right:14px;bottom:14px}
   .fab .fab-t{display:none}
   .fab .wi{width:34px;height:34px;background:none;color:#fff}
+}
+
+/* dentistas em destaque no desktop */
+@media(min-width:900px){
+  .clinic > .docs{grid-column:1/-1;width:100%;margin:44px auto 0;
+    grid-template-columns:repeat(auto-fit,minmax(280px,340px));justify-content:center;gap:24px}
+  .clinic > .docs .doc{display:flex;flex-direction:column;text-align:center;padding:30px 26px}
+  .clinic > .docs .doc .av{width:192px;height:240px;margin:0 auto 20px;border-radius:14px}
+  .clinic > .docs .doc .av img{object-position:50% 14%}
+  .clinic > .docs .doc h4{font-size:19px;margin-bottom:5px}
+  .clinic > .docs .doc .cro{font-size:13px;margin-bottom:12px}
+  .clinic > .docs .doc .facts{margin-top:auto;padding-top:16px;border-top:1px solid var(--rule)}
+  .clinic > .docs .doc p{margin-bottom:16px}
 }
 </style>
 
@@ -1317,7 +1330,19 @@ a.pic:hover .cap{text-decoration:underline}
           <li><span class="ic">⚑</span><div><b>Estacionamento</b><span class="fill">Confirmar: vagas em frente à clínica</span></div></li>
         </ul>
         <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Sorrif%C3%A1cil+Camb%C3%A9+Implantes+Dent%C3%A1rios" target="_blank" rel="noopener">Ver rota no Google Maps</a>
+      </div>
 
+      <div class="fotos" style="display:grid;gap:18px;align-content:start">
+        <div class="pic">
+          <span class="pic-frame" style="aspect-ratio:3/2"><img src="img/fachada.jpg" alt="Fachada da Sorrifácil Cambé, com rampa de acesso" loading="lazy" width="1200" height="804"></span>
+          <span class="cap">A fachada azul, com rampa de acesso</span>
+        </div>
+        <a class="pic" id="mapa" href="https://www.google.com/maps/search/?api=1&amp;query=Sorrif%C3%A1cil+Camb%C3%A9+Implantes+Dent%C3%A1rios" target="_blank" rel="noopener" aria-label="Abrir a localização no Google Maps">
+          <span class="pic-frame" style="aspect-ratio:16/10"><img src="img/mapa.jpg" alt="Mapa do centro de Cambé com a localização da Sorrifácil" loading="lazy" width="1200" height="746"></span>
+          <span class="cap">Abrir no Google Maps →</span>
+        </a>
+      </div>
+    
         <div class="docs">
           <div class="doc">
             <div class="av"><img src="img/dr-daniel.jpg" alt="Dr. Daniel Basso Chagas" loading="lazy" width="420" height="747"></div>
@@ -1345,18 +1370,6 @@ a.pic:hover .cap{text-decoration:underline}
           </div>
         </div>
       </div>
-
-      <div style="display:grid;gap:18px;align-content:start">
-        <div class="pic">
-          <span class="pic-frame" style="aspect-ratio:3/2"><img src="img/fachada.jpg" alt="Fachada da Sorrifácil Cambé, com rampa de acesso" loading="lazy" width="1200" height="804"></span>
-          <span class="cap">A fachada azul, com rampa de acesso</span>
-        </div>
-        <a class="pic" id="mapa" href="https://www.google.com/maps/search/?api=1&amp;query=Sorrif%C3%A1cil+Camb%C3%A9+Implantes+Dent%C3%A1rios" target="_blank" rel="noopener" aria-label="Abrir a localização no Google Maps">
-          <span class="pic-frame" style="aspect-ratio:16/10"><img src="img/mapa.jpg" alt="Mapa do centro de Cambé com a localização da Sorrifácil" loading="lazy" width="1200" height="746"></span>
-          <span class="cap">Abrir no Google Maps →</span>
-        </a>
-      </div>
-    </div>
   </section>
 
   <!-- ══════════ FAQ ══════════ -->
